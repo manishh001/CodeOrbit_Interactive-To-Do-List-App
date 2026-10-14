@@ -1,0 +1,231 @@
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 16px 30px;
+  color: #333;
+}
+
+/* Title and Subtitle */
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+p {
+  color: #e0e0e0;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Input */
+#todo-input {
+  width: 350px;
+  max-width: 100%;
+  padding: 10px 14px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+#todo-input:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  transform: scale(1.02);
+}
+
+/* Simple Add Button */
+#add-btn {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 10px;
+  font-weight: 700;
+  transition: background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+#add-btn:hover {
+  background-color: #222;
+  transform: translateY(-2px);
+}
+
+#add-btn:active {
+  transform: translateY(0);
+}
+
+/* Todo List Container */
+#todo-list {
+  list-style: none;
+  margin-top: 30px;
+  padding: 0;
+  width: 360px;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Each Todo Item */
+#todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  min-height: 65px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+#todo-list li:last-child {
+  border-bottom: none;
+}
+
+#todo-list li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Checkbox */
+#todo-list input[type="checkbox"] {
+  accent-color: #50fa7b;
+  transform: scale(1.5);
+  margin: 0 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Larger Todo Text */
+#todo-list span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+#todo-list span:hover {
+  color: #a3ffea;
+}
+
+/* Completed Todo */
+#todo-list li.completed span {
+  text-decoration: line-through;
+  color: #d1d5db;
+  opacity: 0.75;
+}
+
+/* Larger Delete Button Text */
+#todo-list button {
+  background-color: #ff4b5c;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+#todo-list button:hover {
+  background-color: #e63946;
+  transform: scale(1.05);
+}
+
+#todo-list button:active {
+  transform: scale(0.98);
+}
+
+/* Completed Checkbox Styling */
+#todo-list input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #d1d5db;
+}
+
+/* Smooth Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  body {
+    padding-top: 50px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    max-width: 340px;
+    font-size: 0.9rem;
+  }
+
+  #todo-input {
+    width: 200px;
+  }
+
+  #todo-list {
+    width: 100%;
+  }
+
+  #todo-list li {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  /* Keep task text large on mobile */
+  #todo-list span {
+    font-size: 20px;
+  }
+
+  #todo-list button {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+}
